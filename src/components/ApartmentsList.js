@@ -14,7 +14,7 @@ export default function ApartmentsList({apartments}) {
             return(
                 <div key={apartment._id} className='apartment-box'>
                     <p>Title: {apartment.title}</p>
-                    <p>Price per day: {apartment.pricePerDay}</p>
+                    <p>Price per day: {apartment.pricePerDay}€</p>
                     <img src={apartment.img} alt={apartment.title} />
                     <Link to={`/apartments/${apartment._id}`}>More Details</Link>
                 </div>

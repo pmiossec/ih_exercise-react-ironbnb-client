@@ -18,7 +18,7 @@ function App() {
 
   const getApartmentsFromApi = () =>{
     axios
-      .get(`https://ironbnb-m3.herokuapp.com/apartments`)
+      .get(`${process.env.REACT_APP_API_URL}/apartments`)
       .then((response)=>{
         setApartments(response.data)
       })

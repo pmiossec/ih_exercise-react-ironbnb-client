@@ -10,7 +10,7 @@ export default function ApartmentDetails() {
 
     useEffect(()=>{
         axios
-            .get(`https://ironbnb-m3.herokuapp.com/apartments/${id}`)
+            .get(`${process.env.REACT_APP_API_URL}/apartments/${id}`)
             .then((response)=>{
                 setDetails(response.data);
             })
@@ -21,8 +21,6 @@ export default function ApartmentDetails() {
         <div className="details-box">
             <h1>{details.title}</h1>
             <p>Price per day: {details.pricePerDay}€</p>
-            <img src={details.img} alt={details.title} />
-            
-
+            {<img src={details.img?.length ? details.img : "https://placehold.co/400x260?text=No%20photo%20available"} alt={details.title} />}
         </div> )
 }

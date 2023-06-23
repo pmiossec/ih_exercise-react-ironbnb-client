@@ -13,7 +13,7 @@ export default function CreateApartment() {
 
     const createNewApartment = e => {
         e.preventDefault();
-        axios.post(`https://ironbnb-m3.herokuapp.com/apartments`, {
+        axios.post(`${process.env.REACT_APP_API_URL}/apartments`, {
             title, img, pricePerDay
         })
         .then(r => {
@@ -29,13 +29,13 @@ export default function CreateApartment() {
         <form onSubmit={e => createNewApartment(e)}>
 
             <label>Title:
-                <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
+                <input type="text" value={title} onChange={e => setTitle(e.target.value)} required />
             </label>
             <label>Image Url:
                 <input type="text" value={img} onChange={e => setImg(e.target.value)} />
             </label>
             <label>€/day
-                <input type="number" value={pricePerDay} onChange={e => setPricePerDay(e.target.value)} />
+                <input type="number" value={pricePerDay} onChange={e => setPricePerDay(e.target.value)} required  />
             </label>
 
             <button type="submit">Create</button>

@@ -1,11 +1,24 @@
 import ironhackersImg from "./assets/ironhackers.avif"
 import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/NavBar";
+import ApartmentsList from "./components/ApartmentsList";
+import HomePage from "./components/HomePage";
+import ApartmentDetails from "./components/ApartmentDetails";
+import CreateApartment from "./components/CreateApartment";
+
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome</h1>
-      <img src={ironhackersImg} alt="ironhackers" />
+      <Navbar />
+        <Routes>
+          <Route path='/' element={<HomePage />}/>
+          <Route path='/apartments' element={<ApartmentsList />} />
+          <Route path='/apartments/:id' element={<ApartmentDetails />} />
+          <Route path='/apartments/create' element={<CreateApartment />} />
+        </Routes>
+       
     </div>
   );
 }
